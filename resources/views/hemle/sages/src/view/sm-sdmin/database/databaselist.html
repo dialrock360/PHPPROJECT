@@ -1,0 +1,18 @@
+
+
+    {if isset($databases)}
+
+    {foreach from=$databases item=db}
+    <tr>
+        <td>{$db['dbid']}</td>
+        <td><a href="#">{$db['dbname']}</a> </td>
+        <td>{$db['dbnbrcol']}</td>
+        <td><a href="{$url_base}SM_Admin/use_database/{$db['dbname']}">Utiliser</a></td>
+        <td><a href="{$url_base}SM_Admin/export_database/{$db['dbname']}">Exporter</a></td>
+        <td>
+
+                <a class="delete_database" data-id="{$db['dbname']}" href="javascript:void(0)">
+            Supprimer</a></td>
+    </tr>
+    {/foreach}
+    {/if}

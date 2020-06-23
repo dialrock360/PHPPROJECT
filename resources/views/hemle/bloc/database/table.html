@@ -1,0 +1,65 @@
+
+<div class="table-responsive">
+    <hr/>
+    {$ok}
+    {if isset($databases)}
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        {if $databases != null}
+
+        <thead>
+        {if $table=='databases'}
+        <tr>
+            <th>Identifiant</th>
+            <th>Nom</th>
+            <th>Nombre de table</th>
+            <th>Action</th>
+            <th>Action</th>
+            <th>Action</th>
+        </tr>
+        {/if}
+        {if $table=='lostdatabases'}
+        <tr>
+            <th>Ref</th>
+            <th>Nom</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+        {/if}
+        </thead><tbody>
+
+    {if $table=='databases'}
+    {include file='src/view/sm-sdmin/database/databaselist.html'}
+    {/if}
+
+    {if $table=='lostdatabases'}
+    {include file='src/view/sm-sdmin/database/lostdatabaselist.html'}
+    {/if}
+
+    {else}
+    <tr>
+        <th >
+
+            Liste vide
+
+        </th>
+        <td >
+
+            <div class="alert alert-warning" >
+                Noubliez pas de configurer votre base de données dans le dossier config
+                puis éditez le fichier database.php.
+                <hr/>
+                <a href="{$url_base}SM_Admin/database/config">
+						<span class="btn btn-warning" >
+						Mettez à "on" l'etat de la base svp!
+						</span>
+                </a>
+            </div>
+
+        </td>
+    </tr>
+    </tbody>
+        {/if}
+    </table>
+
+    {/if}
+</div>

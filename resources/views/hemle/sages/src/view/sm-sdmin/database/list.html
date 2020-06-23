@@ -1,0 +1,77 @@
+
+<div class="table-responsive" id="latable">
+    <hr/>
+    {$ok}
+    {if isset($databases)}
+    <input id="myInput" type="text" placeholder="Recherche..">
+    <br><br>
+    <table class="table table-bordered"  width="100%" cellspacing="0">
+        {if $databases != null}
+        <thead><tr>
+            <th>Identifiant</th>
+            <th>Nom</th>
+            <th>Nombre de table</th>
+            <th>Action</th>
+            <th>Action</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody id="myTable">
+    {foreach from=$databases item=db}
+    {if $db['dbname'] == $activedb}
+    <tr class="successcol">
+        <td>{$db['dbid']}</td>
+        <td><a href="#">{$db['dbname']}</a> </td>
+        <td>{$db['dbnbrcol']}</td>
+        <td><a href="{$url_base}SM_Admin/use_database/{$db['dbname']}">Utiliser</a></td>
+        <td><a href="{$url_base}SM_Admin/export_database/{$db['dbname']}">Exporter</a></td>
+        <td>
+            <a class="delete_database" data-id="{$db['dbname']}" href="javascript:void(0)">
+                Supprimer
+            </a>
+        </td>
+    </tr>
+    {else}
+   <tr >
+        <td>{$db['dbid']}</td>
+        <td><a href="#">{$db['dbname']}</a> </td>
+        <td>{$db['dbnbrcol']}</td>
+        <td><a href="{$url_base}SM_Admin/use_database/{$db['dbname']}">Utiliser</a></td>
+        <td><a href="{$url_base}SM_Admin/export_database/{$db['dbname']}">Exporter</a></td>
+        <td>
+            <a class="delete_database" data-id="{$db['dbname']}" href="javascript:void(0)">
+                Supprimer
+            </a>
+        </td>
+    </tr>
+
+    {/if}
+    {/foreach}
+    {else}
+    <tr>
+        <th >
+
+            Liste vide
+
+        </th>
+        <td >
+
+            <div class="alert alert-warning" >
+                Noubliez pas de configurer votre base de données dans le dossier config
+                puis éditez le fichier database.php.
+                <hr/>
+                <a href="{$url_base}SM_Admin/database/config">
+						<span class="btn btn-warning" >
+						Mettez à "on" l'etat de la base svp!
+						</span>
+                </a>
+            </div>
+
+        </td>
+    </tr>
+    </tbody>
+        {/if}
+    </table>
+
+    {/if}
+</div>

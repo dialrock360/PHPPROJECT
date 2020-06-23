@@ -1,0 +1,46 @@
+
+<div class="card  mx-auto ">
+    <div class="card-header">Génerer entitées avec la base de donnees courante</div>
+    <div class="card-body">
+        {if isset($tables)}
+        <table class="table table-bordered" id="Tabledata" width="100%" cellspacing="0">
+            {if $tables != null}
+            <tr>
+                <th>Identifiant</th>
+                <th>Nom</th>
+                <th>Nbr Champ</th>
+                <th>
+                </th>
+                <th>
+                    <input type="checkbox" id="select_all_records"/>
+
+                    <a type="button" id="add_records" class="btn btn-sm btn-info  "><i class="fa fa-upload"></i></a>
+
+                </th>
+            </tr>
+            {foreach from=$tables item=db}
+            <tr>
+                <td>{$db['id']}</td>
+                <td><a href="#">{$db['tablename']}</a> </td>
+                <td>{$db['nbrcol']}</td>
+                <td><a href="{$url_base}SM_Admin/generate_entitie/{$db['tablename']}">Generer Entitée</a></td>
+
+                <td><input type="checkbox" class="ctr_recor_checkbox" data-emp-id="{$db['tablename']}"></td>
+            </tr>
+            {/foreach}
+            {else}
+            <tr>
+                <th colspan="7">
+
+                    Liste vide
+
+                </th>
+
+            </tr>
+            {/if}
+        </table>
+
+        {/if}
+
+    </div>
+</div>

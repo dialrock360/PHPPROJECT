@@ -1,0 +1,60 @@
+<div class="row">
+	<div class="col">
+
+		<nav class="nav nav-tabs">
+			<a href="#tabsql" data-toggle="tab" class="nav-item nav-link active">
+				From Sql File
+			</a>
+			<a data-toggle="tab" href="#tabcf" class="nav-item nav-link">
+				From entities
+			</a>
+
+		</nav>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tabsql">
+				<h3>Charger le fichier sql</h3>
+				<form method="post" action="{$url_base}SM_Admin/manage_database/add" enctype="multipart/form-data">
+
+					<div class="form-group">
+						<label class="control-label">Fichier sql de la base de Données</label>
+						<input class="form-control" type="file" name="database"  id="database" required/>
+					</div>
+					<div class="form-group alert alert-info">
+
+						<div class="form-group">
+							<label class="control-label">Utiliser cette base de Données?</label>
+							<input class="form-control" type="checkbox" name="usedb" value="yes" id="usedb" />
+						</div>
+
+					</div>
+					<div class="form-group">
+						<input class="btn btn-success" type="submit" name="valider" value="Creer"/>
+						<input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
+					</div>
+				</form>
+
+			</div>
+			<div class="tab-pane" id="tabcf">
+				<h3>Charger le dossier entities a importer</h3>
+
+				<form method="post" action="{$url_base}SM_Admin/manage_database/add" enctype="multipart/form-data">
+					<div class="form-group">
+						<label class="control-label">Nom de la basse de Données</label>
+						<input class="form-control" type="text" name="dbname" id="valeur1"/>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Dossier contenant les entitées</label>
+						<input class="form-control" type="file" name="entities_dir"  id="entities_dir"/>
+					</div>
+					<div class="form-group">
+						<input class="btn btn-success" type="button" name="valider" value="Creer"/>
+						<input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
+					</div>
+				</form>
+
+			</div>
+
+		</div>
+	</div>
+
+</div>

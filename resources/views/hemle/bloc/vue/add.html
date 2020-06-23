@@ -1,0 +1,72 @@
+
+
+<div class="card  mx-auto ">
+	<div class="card-header">Entities from Scratch</div>
+	<div class="card-body">
+		<form method="post" name="FormData" action="{$url_base}SM_Admin/generate_model/nulle" enctype="multipart/form-data">
+			<fieldset id="entitie" class="wrapper" >
+				<input  type="hidden" name="addmethode" value="2"   />
+
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label class="control-label">Nom du model</label>
+							<input class="form-control" type="text" name="crtname" id="entname" required/>
+						</div>
+
+					</div>
+					<div class="col-sm-6">
+
+						<div class="form-group">
+
+
+							{if isset($entities)}
+
+							<label class="control-label">Classes a importer</label>
+							<div class="row">
+
+								<div class="col-md-10">
+									<select multiple="multiple" size="10" name="import[]" class="demo2" title="duallistbox_demo2">
+
+										<optgroup label="Liste des Entitees">
+											{foreach from=$entities item=champ}
+											<option value="{$champ['entname']}">{$champ['entname']}</option>
+
+											{/foreach}
+										</optgroup>
+									</select>
+									<script>
+										var demo2 = $('.demo2').bootstrapDualListbox({
+											nonSelectedListLabel: 'Non-selectionés',
+											selectedListLabel: 'Selectionés',
+											preserveSelectionOnMove: 'Deplacer',
+											moveOnSelect: false,
+											nonSelectedFilter: ''
+										});
+									</script>
+								</div>
+							</div>
+
+							{/if}
+					</div>
+				</div>
+				<table class="table table-striped table-bordered" id="tbl">
+					<tr>
+						<th>Id </th>
+						<th>Element </th>
+						<th>Nom </th>
+						<th>Encapsulation</th>
+						<th><button class="btn btn-info pull-right" type="button" onclick="addRow()">Ajouter</button></th>
+					</tr>
+				</table>
+			</fieldset>
+			<hr>
+
+			<div class="form-group">
+				<input class="btn btn-success" type="submit" name="valider" value="Creer"/>
+				<input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
+				<button class="btn btn-info pull-right" type="button" onclick="addRow()">Ajouter</button>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,76 @@
+
+<div class="card card-login mx-auto mt-5">
+    <div class="card-header">Configuration de la base de donnees courante</div>
+    <div class="card-body">
+        <form method="post" action="{$url_base}SM_Admin/manage_database/config" >
+
+            <div class="form-group">
+                <div class="form-label-group">
+                    <input type="text" id="dbname" class="form-control" name="dbname" value="{$curentdatabase['database_name']}"  required="required" autofocus="autofocus">
+                    <label for="dbname">Database name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <div class="form-label-group">
+                            <input name="user" type="text" value="{$curentdatabase['user']}"  id="user" class="form-control"   required="required"  >
+                            <label for="user">User name</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <div class="form-label-group">
+                            <input type="password" id="password"  name="password" class="form-control"   value="{$curentdatabase['password']}">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="form-group">
+                <div class="form-label-group">
+                    <input name="host" type="text" value="{$curentdatabase['host']}"  id="host" class="form-control" placeholder="Email address" required="required"  >
+                    <label for="host">Host link</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+
+                    <div class="row">
+                        {assign var="checked" value=(('on'=={$curentdatabase['etat']})?'checked':'')}
+                        <div class="col-sm-6"><label >Active DataBase</label></div>
+                        <div class="col-sm-3"><label class="radio-inline"><input type="radio" value="on" name="etat" {('on'=={$curentdatabase['etat']})?'checked':''} >Yes</label></div>
+                        <div class="col-sm-3"> <label class="radio-inline"><input type="radio" value="off" name="etat" {('on'=={$curentdatabase['etat']})?'':'checked'} >No</label></div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+            <div class="form-group alert alert-info">
+
+
+                <div class="row">
+
+                    <div class="col-sm-9">
+                        <label class="control-label" class="radio-inline">Generer Crud From database</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="form-control" type="checkbox" name="crud" value="yes" id="crud" />
+                    </div>
+                </div>
+            </div>
+
+            <input class="btn btn-primary btn-block" type="submit" name="valider" value="Enregistrer"/>
+        </form>
+
+    </div>
+</div>

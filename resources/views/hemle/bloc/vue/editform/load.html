@@ -1,0 +1,61 @@
+
+<div class="card  mx-auto ">
+    <div class="card-header">Génerer fichier de la vue {$vuename}</div>
+    <div class="card-body">
+
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Designation</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>Add</td>
+                <td>
+                    <a href="{$url_base}SM_Admin/generate_file_vue/{$db['entname']}/add" class="btn btn-outline-primary pull-right"  title="editer"> <i class="fa fa-plus"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>Edit</td>
+                <td>
+                    <a href="{$url_base}SM_Admin/generate_file_vue/{$db['entname']}/edit" class="btn btn-outline-warning pull-right"  title="editer"> <i class="fa fa-edit"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>Index</td>
+                <td>
+                    <a href="{$url_base}SM_Admin/generate_file_vue/{$db['entname']}/index" class="btn btn-outline-dark pull-right"  title="editer"> <i class="fa fa-info-circle"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>List</td>
+                <td>
+                    <a href="{$url_base}SM_Admin/generate_file_vue/{$db['entname']}/index" class="btn btn-outline-info pull-right"  title="editer"> <i class="fa fa-list"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>Main libre</td>
+                <td>
+                    <form method="post" action="{$url_base}SM_Admin/generate_file_vue/{$db['entname']}/free">
+
+                        <input class="form-control" type="hidden" name="ID" value="ID" id="ID"/>
+
+                        <div class="form-group">
+                            <label class="control-label">Nom du fichier</label>
+                            <input class="form-control" type="text" name="filename" id="filename"/>
+                        </div>
+                        <div class="form-group">
+                            <input class="btn btn-success" type="submit" name="valider" value="ENvoyer"/>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

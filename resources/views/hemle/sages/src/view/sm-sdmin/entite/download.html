@@ -1,0 +1,56 @@
+
+<div class="card card-login mx-auto mt-5">
+    <div class="card-header">Génerer entitées avec une base de données</div>
+    <div class="card-body">
+
+        <form method="post" action="{$url_base}SM_Admin/generate_entitie/nulle" enctype="multipart/form-data">
+
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input  type="hidden" name="curendatabasename" value="{$curendatabasename}"   />
+                        <input class="form-control" type="checkbox" name="use_curendatabase" value="yes" id="curendatabase"  />
+                        <input  type="hidden" name="addmethode" id="addmethode" value="1"   />
+                        Utiliser la base de données courante
+                    </label>
+                </div>
+            </div>
+            <fieldset id="selecteddb">
+                <div class="form-group" >
+
+                    {if isset($databases)}
+                    <select class="form-control" name="otherdatabasename" id="databasename">
+                        <option selected disabled>Choisir la base de Données</option>
+                        {foreach from=$databases item=db}
+                        <option value="{$db['dbname']}">{$db['dbname']}</option>
+                        {/foreach}
+                    </select>
+                    {/if}
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox">
+
+                        <div class="row">
+                            <div class="col-sm-6"><label >Options</label></div>
+                            <div class="col-sm-3"><label class="checkbox-inline" ch><input type="checkbox"  name="getter" value="1" checked>Getter</label></div>
+                            <div class="col-sm-3"><label class="checkbox-inline"><input type="checkbox" name="setter" value="1" checked>Setter</label></div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <div class="form-group">
+                <input class="btn btn-success" type="submit" name="charger" value="Generer"/>
+                <input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
+            </div>
+        </form>
+
+    </div>
+</div>

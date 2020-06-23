@@ -1,0 +1,102 @@
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+
+{include file='src/view/sm-sdmin/template/head.html'}
+<body id="page-top">
+
+
+
+{include file='src/view/sm-sdmin/template/navbar.html'}
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    {include file='src/view/sm-sdmin/template/menu.html'}
+
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Breadcrumbs -->
+
+
+            
+            <!-- Icon Cards-->
+            {assign var="table" value=""}
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+
+
+                    <nav class="nav nav-tabs">
+                        <a href="#tab1" data-toggle="tab" class="nav-item nav-link active">
+                            <i class="fa fa-list"></i> Liste des controlleurs
+                        </a>
+                        <a data-toggle="tab" href="#tab2" class="nav-item nav-link">
+                            <i class="fa fa-upload"></i> Génerer controlleurs
+                        </a>
+                        <a data-toggle="tab" href="#tab3" class="nav-item nav-link">
+                            <i class="fa fa-download"></i>Importer controlleurs
+                        </a>
+                        <a data-toggle="tab" href="#tab4" class="nav-item nav-link">
+                            <i class="fa fa-plus-circle"></i> Créer controlleurs
+                        </a>
+
+                    </nav>
+                </div>
+                <div class="card-body">
+
+                    <div id="ok" >{$ok} </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab1">
+
+                            {include file='src/view/sm-sdmin/controlleur/table.html'}
+                        </div>
+                        <div class="tab-pane" id="tab2">
+                            {include file='src/view/sm-sdmin/controlleur/upload.html'}
+                        </div>
+                        <div class="tab-pane" id="tab3">
+                            {include file='src/view/sm-sdmin/controlleur/download.html'}
+                        </div>
+
+                        <div class="tab-pane" id="tab4">
+
+                            {include file='src/view/sm-sdmin/controlleur/add.html'}
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- DataTables Example -->
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+        <!-- Sticky Footer -->
+        {include file='src/view/sm-sdmin/template/footer.html'}
+    </div>
+    <!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+{include file='src/view/sm-sdmin/template/scrollbutton.html'}
+
+
+
+
+<!-- script files-->
+{include file='src/view/sm-sdmin/template/script.html'}
+
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>page d'accueil</title>
+	<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+	<link type="text/css" rel="stylesheet" href="{$url_base}public/css/bootstrap.min.css"/>
+	<link type="text/css" rel="stylesheet" href="{$url_base}public/css/samane.css"/>
+
+	<script src="{$url_base}public/js/jquery.js"></script>
+	<script src="{$url_base}public/js/bootstrap.min.js"></script>
+	<style>
+		h1{
+			color: #40007d;
+		}
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="{$url_base}"> Mon Site Web</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li  class="active"><a href="{$url_base}SM_Admin/index">Accueil</a></li>
+			<li><a href="{$url_base}SM_Admin/database/database">Base de Donnee</a></li>
+			<li><a href="{$url_base}SM_Admin/controlleur/controlleur">Conrolleurs</a></li>
+			<li><a href="{$url_base}SM_Admin/entite/entite">Entites</a></li>
+			<li><a href="{$url_base}SM_Admin/modele/modele">Modeles</a></li>
+			<li><a href="{$url_base}SM_Admin/vue/vue">Vues</a></li>
+		</ul>
+		<img src="{$url_base}public/image/logo.jpg" height="64" width="64" class="img-circle pull-right" />
+	</div>
+</nav>
+<div class="col-md-8 col-xs-12 col-md-offset-2" style="margin-top:150px;">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h4>BIENVENUE A VOTRE MODELE DATABASE</h4>
+
+			<ul class="nav navbar-nav">
+				<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+				<li><a href="{$url_base}SM_Admin/database/database/">Liste des databases</a></li>
+				<li><a href="{$url_base}SM_Admin/database/config">Configuration</a></li>
+				<li><a href="{$url_base}SM_Admin/database/restor">Restaurer database</a></li>
+				<li><a href="{$url_base}SM_Admin/database/delete">Supprimer database</a></li>
+
+
+			</ul>
+		</div>
+		<div class="panel-body">
+			<hr/>
+			{$ok}
+
+
+
+			<ul class="nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#home">Avec fichier sql</a></li>
+				<li><a data-toggle="tab" href="#menu1">Avec les entitées</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div id="home" class="tab-pane fade in active">
+					<h3>Charger le fichier sql</h3>
+					<form method="post" action="{$url_base}SM_Admin/database/add" enctype="multipart/form-data">
+
+						<div class="form-group">
+							<label class="control-label">Fichier sql de la base de Données</label>
+							<input class="form-control" type="file" name="database"  id="database" required/>
+						</div>
+						<div class="form-group alert alert-warning">
+
+							<div class="form-group">
+								<label class="control-label">Generer Crud From database</label>
+								<input class="form-control" type="checkbox" name="crud" value="yes" id="crud" required/>
+							</div>
+
+						</div>
+						<div class="form-group">
+							<input class="btn btn-success" type="submit" name="valider" value="Creer"/>
+							<input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
+						</div>
+					</form>
+				</div>
+				<div id="menu1" class="tab-pane fade">
+					<h3>Charger le dossier entities a importer</h3>
+
+					<form method="post" action="{$url_base}SM_Admin/adddatabase" enctype="multipart/form-data">
+						<div class="form-group">
+							<label class="control-label">Nom de la basse de Données</label>
+							<input class="form-control" type="text" name="dbname" id="valeur1"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Dossier contenant les entitées</label>
+							<input class="form-control" type="file" name="entities_dir"  id="entities_dir"/>
+						</div>
+						<div class="form-group">
+							<input class="btn btn-success" type="button" name="valider" value="Creer"/>
+							<input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
+						</div>
+					</form>
+				</div>
+
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+

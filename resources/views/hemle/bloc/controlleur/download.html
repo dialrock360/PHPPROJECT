@@ -1,0 +1,31 @@
+<div class="panel panel-warning">
+    <div class="panel-heading"><h4 >Controller from any database</h4></div>
+    <div class="panel-body">
+
+        <form method="post" action="{$url_base}SM_Admin/generate_controller/nulle" enctype="multipart/form-data">
+
+            <fieldset id="selecteddb">
+
+                <div class="form-group">
+                    <label class="control-label">Choisir la base de Données</label>
+
+                    {if isset($databases)}
+                    <select class="form-control" name="databasename">
+                        <option selected disabled>---</option>
+                        {foreach from=$databases item=db}
+                        <option value="{$db['dbname']}">{$db['dbname']}</option>
+                        {/foreach}
+                    </select>
+                    {/if}
+                </div>
+
+
+            </fieldset>
+
+            <div class="form-group">
+                <input class="btn btn-success" type="submit" name="importer" value="importer"/>
+                <input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,164 @@
+
+#osanim
+{
+	position: relative;
+	top:19%;
+}
+
+#titre span
+{
+	-webkit-Perspective:800px;
+}
+#titre span:ntn-child(2)
+{
+
+}
+#titre span:ntn-child(3)
+{
+
+}
+
+#titre span
+{
+	color: #FFFFFF;
+	background: #444;
+	background: -webkit-linear-gradient( #555, #2C2C2C);
+	background:    -moz-linear-gradient( #555, #2C2C2C);
+	background:     -ms-linear-gradient( #555, #2C2C2C);
+	background:      -o-linear-gradient( #555, #2C2C2C);
+	background:         linear-gradient( #555,  blue);
+	border-radius: 8px;
+	box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5),
+	0 -1px 0 rgba( 255, 255, 255, 0.4);
+	text-shadow: 0px -1px 5px #FFF,
+	0px -2px 10px yellow;
+
+	text-align:center;
+	animation:neon 3s ease infinite;
+	-webkit-animation: neon ease 3s infinite;
+
+}
+#titre
+{
+
+}
+
+@keyframes neon
+{
+
+	0%{ text-shadow:0 0 10px #495dff;}
+	30%{ text-shadow:0 0 100px #65c4ff;}
+	60%{ text-shadow:0 0 200px #FFFF00;}
+	100%{ text-shadow:0 0 10px #FFFF33;}
+
+}
+
+@-o-keyframes neon
+{
+
+	0%{ text-shadow:0 0 10px #1b1cff;}
+	30%{ text-shadow:0 0 100px #ff17eb;}
+	60%{ text-shadow:0 0 200px #FFFF00;}
+	100%{ text-shadow:0 0 10px #2476ff;}
+
+}
+
+
+@-webkit-keyframes neon
+{
+
+	0%{ text-shadow:0 0 10px #00FF00;}
+	30%{ text-shadow:0 0 100px #ff20c4;}
+	60%{ text-shadow:0 0 200px #85c9ff;}
+	100%{ text-shadow:0 0 10px #a314ff;}
+
+}
+
+
+
+
+
+#cssmenu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+#cssmenu li {
+	float: left;
+}
+
+#cssmenu li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+#cssmenu li a:hover:not(.active) {
+	background-color: #111;
+}
+
+#cssmenu  .activer {
+	background-color: #4CAF50;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#sousmenu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+#sousmenu li {
+	float: left;
+}
+
+#sousmenu li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+#sousmenu li a:hover:not(.active) {
+	background-color: #111;
+}
+
+#sousmenu  .activer {
+	background-color: #4CAF50;
+}

@@ -1,0 +1,53 @@
+
+
+<div class="table-responsive">
+	<hr/>
+	{$ok}
+	{if isset($lostdatabases)}
+	<table class="table table-bordered" id="Tabledata" width="100%" cellspacing="0">
+		{if $lostdatabases != null}
+		<thead>
+		<tr>
+			<th>Ref</th>
+			<th>Nom</th>
+			<th>Date</th>
+			<th>Action</th>
+		</tr>
+		</thead><tbody>
+
+	{foreach from=$lostdatabases item=db}
+	<tr>
+		<td>{$db['dbid']}</td>
+		<td><a href="#">{$db['dbname']}</a> </td>
+		<td>{$db['dbdate']}</td>
+		<td><a href="{$url_base}SM_Admin/restor_database/{$db['dbref']}">Restaurer</a></td>
+	</tr>
+	{/foreach}
+	{else}
+	<tr>
+		<th >
+
+			Liste vide
+
+		</th>
+		<td >
+
+			<div class="alert alert-warning" >
+				Noubliez pas de configurer votre base de données dans le dossier config
+				puis éditez le fichier database.php.
+				<hr/>
+				<a href="{$url_base}SM_Admin/database/config">
+						<span class="btn btn-warning" >
+						Mettez à "on" l'etat de la base svp!
+						</span>
+				</a>
+			</div>
+
+		</td>
+	</tr>
+	</tbody>
+		{/if}
+	</table>
+
+	{/if}
+</div>

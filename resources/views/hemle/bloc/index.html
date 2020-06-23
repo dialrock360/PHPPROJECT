@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+{include file='src/view/sm-sdmin/template/head.html'}
+<body id="page-top">
+
+
+
+{include file='src/view/sm-sdmin/template/navbar.html'}
+<div id="wrapper">
+
+	<!-- Sidebar -->
+	{include file='src/view/sm-sdmin/template/menu.html'}
+
+	<div id="content-wrapper">
+
+		<div class="container-fluid">
+			<!-- Breadcrumbs -->
+
+			{include file='src/view/sm-sdmin/template/breadcrumbs.html'}
+
+			<!-- Icon Cards-->
+			<div class="row">
+				<div class="col-xl-12 col-sm-12 mb-12">
+					<div class="card text-white bg-primary o-hidden h-100">
+						<div class="card-body">
+
+							<div class="panel panel-info">
+								<div class="panel-heading">BIENVENUE A VOTRE MODELE MVC UI MANAGER 1.0</div>
+								<div class="panel-body">
+									<div class="alert alert-success" style="font-size:18px; text-align:justify;">
+										Merci, l'équipe samanemvc vous remercie :) :
+										je vous ai préparé un CRUD qui marche, il suffit tout simplement d'importer
+										la base de données qui se trouve dans le dossier src/view puis test (src/view/test);
+										cette base s'appelle samane_test.sql et elle comporte une seule table nommée test.
+										ça vous sera très utile j'espère.
+										<br/>Et surtout noubliez pas de configurer votre base de données : ou? Dans le dossier config
+										puis éditez le fichier database.php. Mettez à on l'etat de la base! Bon code!!!!  :)
+									</div>
+									<div id="design_js">FRAMEWORK: SAMANE MVC DEVELOPPE PAR Ngor SECK ! <h1>Version 1.5</h1></div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+
+			<!-- DataTables Example -->
+
+
+		</div>
+		<!-- /.container-fluid -->
+
+		<!-- Sticky Footer -->
+		{include file='src/view/sm-sdmin/template/footer.html'}
+	</div>
+	<!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+{include file='src/view/sm-sdmin/template/scrollbutton.html'}
+
+
+
+
+<!-- script files-->
+{include file='src/view/sm-sdmin/template/script.html'}
+
+
+</body>
+
+</html>
+

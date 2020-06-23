@@ -1,0 +1,51 @@
+
+<div class="card  mx-auto ">
+    <div class="card-header">Generate view from entities</div>
+    <div class="card-body">
+
+        <div class="table-responsive">
+
+
+            {if isset($tables)}
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                {if $tables != null}
+                <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Nom</th>
+
+                    <th> <input type="checkbox" id="select_all_records"/></th>
+                    <th>
+                        <span class="rows_selected" id="select_count">0 Selected</span>
+                        <a type="button" id="add_records" class="btn btn-sm btn-info  "><i class="fa fa-upload"></i></a>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach from=$tables item=db}
+                <tr id="{$db['entname']}">
+                    <td>{$db['id']}</td>
+                    <td><a  href="#">{$db['entname']}</a> </td>
+                    <td><input type="checkbox" class="ctr_recor_checkbox" data-emp-id="{$db['entname']}"></td>
+                    <td><a href="{$url_base}SM_Admin/generate_vue/{$db['entname']}">Generer Vue</a></td>
+                </tr>
+                {/foreach}
+                {else}
+                <tr>
+                    <th colspan="7">
+
+                        Liste vide
+
+                    </th>
+
+                </tr>
+                {/if}
+                </tbody>
+            </table>
+
+            {/if}
+        </div>
+    </div>
+</div>
+
+

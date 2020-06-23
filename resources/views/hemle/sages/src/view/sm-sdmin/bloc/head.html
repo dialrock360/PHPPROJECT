@@ -1,0 +1,118 @@
+<head>
+    <meta charset="UTF-8">
+    <title>page d'accueil</title>
+    <!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+
+    <link type="text/css" rel="stylesheet" href="{$url_base}public/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="{$url_base}public/css/samane.css"/>
+
+
+    <script src="{$url_base}public/js/jquery.js"></script>
+    <script src="{$url_base}public/js/jquery.min.js"></script>
+    <script src="{$url_base}public/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <style>
+
+        .table#table-borderless td, .table#table-borderless th {
+            border: 0 !important;
+        }
+
+        .table#table-borderless {
+            margin-bottom: 0px;
+        }
+        .mybordered {
+            *border-collapse: collapse; /* IE7 and lower */
+            border-spacing: 0;
+            width: 100%;
+        }
+
+        .mybordered {
+            border: solid #ccc 1px;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            -webkit-box-shadow: 0 1px 1px #ccc;
+            -moz-box-shadow: 0 1px 1px #ccc;
+            box-shadow: 0 1px 1px #ccc;
+        }
+
+        .mybordered tr:hover {
+            background: #fbf8e9;
+            -o-transition: all 0.1s ease-in-out;
+            -webkit-transition: all 0.1s ease-in-out;
+            -moz-transition: all 0.1s ease-in-out;
+            -ms-transition: all 0.1s ease-in-out;
+            transition: all 0.1s ease-in-out;
+        }
+
+        .mybordered td, .mybordered th {
+            border-left: 1px solid #ccc;
+            border-top: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .mybordered th {
+            background-color: #dce9f9;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
+            background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
+            background-image:    -moz-linear-gradient(top, #ebf3fc, #dce9f9);
+            background-image:     -ms-linear-gradient(top, #ebf3fc, #dce9f9);
+            background-image:      -o-linear-gradient(top, #ebf3fc, #dce9f9);
+            background-image:         linear-gradient(top, #ebf3fc, #dce9f9);
+            -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+            -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
+            box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+            border-top: none;
+            text-shadow: 0 1px 0 rgba(255,255,255,.5);
+        }
+
+        .mybordered td:first-child, .mybordered th:first-child {
+            border-left: none;
+        }
+
+        .mybordered th:first-child {
+            -moz-border-radius: 6px 0 0 0;
+            -webkit-border-radius: 6px 0 0 0;
+            border-radius: 6px 0 0 0;
+        }
+
+        .mybordered th:last-child {
+            -moz-border-radius: 0 6px 0 0;
+            -webkit-border-radius: 0 6px 0 0;
+            border-radius: 0 6px 0 0;
+        }
+
+        .mybordered th:only-child{
+            -moz-border-radius: 6px 6px 0 0;
+            -webkit-border-radius: 6px 6px 0 0;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .mybordered tr:last-child td:first-child {
+            -moz-border-radius: 0 0 0 6px;
+            -webkit-border-radius: 0 0 0 6px;
+            border-radius: 0 0 0 6px;
+        }
+
+        .mybordered tr:last-child td:last-child {
+            -moz-border-radius: 0 0 6px 0;
+            -webkit-border-radius: 0 0 6px 0;
+            border-radius: 0 0 6px 0;
+        }
+
+
+
+
+        strong {
+            text-shadow: 0px 1px 0.5px #4d4d4d;
+            color: grey;
+            font: 16px 'LeagueGothicRegular';
+        }
+    </style>
+</head>

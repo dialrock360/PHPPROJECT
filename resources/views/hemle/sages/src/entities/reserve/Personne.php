@@ -1,0 +1,172 @@
+<?php
+
+    /*==================================================
+    MODELE MVC DEVELOPPE PAR Ngor SECK
+    ngorsecka@gmail.com
+    (+221) 77 - 433 - 97 - 16
+    PERFECTIONNEZ CE MODEL ET FAITES MOI UN RETOUR
+    VOUS ETES LIBRE DE TOUTE UTILISATION
+    Document redefini par samane_ui_admin de Pierre Yem Mback dialrock360@gmail.com
+    ==================================================*/
+
+
+
+     namespace src\entities;
+    /*==================Classe creer par Samane samane_ui_admin le 10-11-2019 11:31:22=====================*/
+        class Personne
+            {
+
+    /*==================Attribut list=====================*/
+                
+             private  $id;
+             private  $nom_personne;
+             private  $prenom_personne;
+             private  $genre_personne;
+             private  $date_naiss_personne;
+             private  $lieu_naiss_personne;
+             private  $nationalite_personne;
+             private  $typepiece_personne;
+             private  $numpiece_personne;
+             private  $photo_personne;
+             private  $details_personne;
+             private  $flag_personne;
+
+
+    /*==================Getter list=====================*/
+                
+             public function getId()
+                 {
+                     return $this->id;
+                 }
+
+             public function getNom_personne()
+                 {
+                     return $this->nom_personne;
+                 }
+
+             public function getPrenom_personne()
+                 {
+                     return $this->prenom_personne;
+                 }
+
+             public function getGenre_personne()
+                 {
+                     return $this->genre_personne;
+                 }
+
+             public function getDate_naiss_personne()
+                 {
+                     return $this->date_naiss_personne;
+                 }
+
+             public function getLieu_naiss_personne()
+                 {
+                     return $this->lieu_naiss_personne;
+                 }
+
+             public function getNationalite_personne()
+                 {
+                     return $this->nationalite_personne;
+                 }
+
+             public function getTypepiece_personne()
+                 {
+                     return $this->typepiece_personne;
+                 }
+
+             public function getNumpiece_personne()
+                 {
+                     return $this->numpiece_personne;
+                 }
+
+             public function getPhoto_personne()
+                 {
+                     return $this->photo_personne;
+                 }
+
+             public function getDetails_personne()
+                 {
+                     return $this->details_personne;
+                 }
+
+             public function getFlag_personne()
+                 {
+                     return $this->flag_personne;
+                 }
+
+
+    /*==================Setter list=====================*/
+                
+             public function setId($id)
+                 {
+                      $this->id = $id;
+                 }
+
+             public function setNom_personne($nom_personne)
+                 {
+                      $this->nom_personne = $nom_personne;
+                 }
+
+             public function setPrenom_personne($prenom_personne)
+                 {
+                      $this->prenom_personne = $prenom_personne;
+                 }
+
+             public function setGenre_personne($genre_personne)
+                 {
+                      $this->genre_personne = $genre_personne;
+                 }
+
+             public function setDate_naiss_personne($date_naiss_personne)
+                 {
+                      $this->date_naiss_personne = $date_naiss_personne;
+                 }
+
+             public function setLieu_naiss_personne($lieu_naiss_personne)
+                 {
+                      $this->lieu_naiss_personne = $lieu_naiss_personne;
+                 }
+
+             public function setNationalite_personne($nationalite_personne)
+                 {
+                      $this->nationalite_personne = $nationalite_personne;
+                 }
+
+             public function setTypepiece_personne($typepiece_personne)
+                 {
+                      $this->typepiece_personne = $typepiece_personne;
+                 }
+
+             public function setNumpiece_personne($numpiece_personne)
+                 {
+                      $this->numpiece_personne = $numpiece_personne;
+                 }
+
+             public function setPhoto_personne($photo_personne)
+                 {
+                      $this->photo_personne = $photo_personne;
+                 }
+
+             public function setDetails_personne($details_personne)
+                 {
+                      $this->details_personne = $details_personne;
+                 }
+
+             public function setFlag_personne($flag_personne)
+                 {
+                      $this->flag_personne = $flag_personne;
+                 }
+
+
+
+    /*==================Methode list=====================*/
+           }
+  
+   
+
+
+
+   ?>
+
+
+

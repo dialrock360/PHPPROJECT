@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<title>Samane ui Manager</title>
+
+	<link href="{$url_base}public/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link href="{$url_base}public/css/samaneui/samane.ui.css" rel="stylesheet" type="text/css">
+	<!-- Page level plugin CSS-->
+	<link href="{$url_base}public/assets/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+	<!-- Custom styles for this template-->
+	<link href="{$url_base}public/assets/css/sb-admin.css" rel="stylesheet">
+	<link rel="stylesheet" href="{$url_base}public/assets/duallistbox/css/bootstrap.min.css" >
+	<link rel="stylesheet" type="text/css" href="{$url_base}public/assets/duallistbox/css/bootstrap-duallistbox.css">
+	<script src="{$url_base}public/assets/duallistbox/js/jquery-3.2.1.slim.min.js" ></script>
+
+	<script src="{$url_base}public/assets/duallistbox/js/jquery.bootstrap-duallistbox.js"></script>
+</head>
+<body id="page-top">
+
+
+
+{include file='src/view/sm-sdmin/template/navbar.html'}
+<div id="wrapper">
+
+	<!-- Sidebar -->
+	{include file='src/view/sm-sdmin/template/menu.html'}
+
+	<div id="content-wrapper">
+
+		<div class="container-fluid">
+
+			<!-- Breadcrumbs -->
+
+			{include file='src/view/sm-sdmin/template/breadcrumbs.html'}
+			{include file='src/view/sm-sdmin/database/delete.html'}
+			<!-- Icon Cards-->
+			{assign var="table" value=""}
+			<!-- DataTables Example -->
+			<div class="card mb-3">
+				<div class="card-header">
+
+					<nav class="nav nav-tabs">
+						<a href="#tab1" data-toggle="tab" class="nav-item nav-link active">
+							<i class="fa fa-list"></i> Liste des entitées
+						</a>
+						<a data-toggle="tab" href="#tab2" class="nav-item nav-link">
+							<i class="fa fa-upload"></i> Génerer entitées
+						</a>
+						<a data-toggle="tab" href="#tab3" class="nav-item nav-link">
+							<i class="fa fa-download"></i>Importer entités
+						</a>
+						<a data-toggle="tab" href="#tab4" class="nav-item nav-link">
+							<i class="fa fa-plus-circle"></i> Créer entités
+						</a>
+
+					</nav>
+				</div>
+				<div class="card-body">
+
+					<div id="ok" >{$ok} </div>
+					<div class="tab-content">
+
+
+
+						<div class="tab-pane active" id="tab1">
+
+							{include file='src/view/sm-sdmin/entite/table.html'}
+						</div>
+						<div class="tab-pane" id="tab2">
+							{include file='src/view/sm-sdmin/entite/updload.html'}
+						</div>
+						<div class="tab-pane" id="tab3">
+							{include file='src/view/sm-sdmin/entite/download.html'}
+						</div>
+
+						<div class="tab-pane" id="tab4">
+
+							{include file='src/view/sm-sdmin/entite/add.html'}
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- DataTables Example -->
+
+
+		</div>
+		<!-- /.container-fluid -->
+
+		<!-- Sticky Footer -->
+		{include file='src/view/sm-sdmin/template/footer.html'}
+	</div>
+	<!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+{include file='src/view/sm-sdmin/template/scrollbutton.html'}
+
+
+
+
+<!-- script files-->
+{include file='src/view/sm-sdmin/template/script.html'}
+
+
+<script  >
+	//select all checkboxes
+	$("#select_all").change(function(){  //"select all" change
+		$(".checkbox").prop('checked', $(this).prop("checked")); //change all ".checkbox" checked status
+	});
+
+	//".checkbox" change
+	$('.checkbox').change(function(){
+		//uncheck "select all", if one of the listed checkbox item is unchecked
+		if(false == $(this).prop("checked")){ //if this item is unchecked
+			$("#select_all").prop('checked', false); //change "select all" checked status to false
+		}
+		//check "select all" if all checkbox items are checked
+		if ($('.checkbox:checked').length == $('.checkbox').length ){
+			$("#select_all").prop('checked', true);
+		}
+	});
+
+	$(document).ready(function(){
+
+
+
+		$(document).on('click', '#load_entitie', function(e){
+			var sThisVal=[];
+
+			$('input.checkbox:checkbox:checked').each(function (index) {
+				sThisVal[index]=  $(this).val();
+
+			});
+			alert(sThisVal);
+
+
+			e.preventDefault();
+		});
+
+	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	$("#ok").fadeOut(7500);
+
+	function addRow()
+	{
+		var table = document.getElementById("tbl"); //get the table
+		var rowcount = table.rows.length; //get no. of rows in the table
+		//append the controls in the row
+		var tblRow = '<tr id="row' + rowcount + '"> <td> <label id="lblID' + rowcount + '">' + rowcount + '</label>' + ' </td> <td><select class="form-control" name="element[]"   id="element\' + rowcount + \'"  ><option value="attribut">Attribut</option><option value="methode">methode</option></select></td><td> <input type="text" class="form-control" name="elmname[]" id="elmname\' + rowcount + \'" /> </td>\'<td><select class="form-control" name="encaps[]"   id="encaps\' + rowcount + \'"  ><option value="private">private</option><option value="public">public</option><option value="protected">protected</option></select></td><td> <input type="button" class="btn btn-danger" id="btnDelete' + rowcount + '" onclick="DeleteRow(' + rowcount + ')" value="Supprimer" /> </td> </tr>';
+
+
+		//append the row to the table.
+		$("#tbl").append(tblRow);
+	}
+
+	function DeleteRow(id)
+	{
+		$("#row" + id).remove();
+	}
+	function jsUcfirst(string)
+	{
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+
+
+	var varurl='{$url_base}SM_Admin';
+
+	$(document).on('click', '#select_allctr', function() {
+		$(".ctr_checkbox").prop("checked", this.checked);
+		$("#select_count").html($("input.ctr_checkbox:checked").length+" Selected");
+	});
+	$(document).on('click', '.ctr_checkbox', function() {
+		if ($('.ctr_checkbox:checked').length == $('.ctr_checkbox').length) {
+			$('#select_allctr').prop('checked', true);
+		} else {
+			$('#select_allctr').prop('checked', false);
+		}
+		$("#select_count").html($("input.ctr_checkbox:checked").length+" Selected");
+	});
+
+
+	// delete selected records
+	$('#delete_records').on('click', function(e) {
+		var entitie = [];
+		$(".ctr_checkbox:checked").each(function() {
+			entitie.push($(this).data('emp-id'));
+		});
+		if(entitie.length <=0) { alert("Veuillez sélectionner des enregistrements."); } else { WRN_PROFILE_DELETE = "\n" + "Etes-vous sûr de vouloir supprimer "+(entitie.length>1?"ces":"cette")+" ligne(s)?";
+			var checked = confirm(WRN_PROFILE_DELETE);
+			if(checked == true) {
+				var selected_values = entitie.join(";");
+
+				//alert(selected_values)
+				var sendInfo = {
+					supprimer: 'ajax',
+					ctrlnames: selected_values
+				};
+				var urrl= varurl+'/delete_entitie/nulle';
+
+				$("#ok").fadeOut();
+
+				$.ajax({
+
+					type: 'POST',
+					url: varurl+'/delete_entitie/nulle',
+					data: sendInfo,
+					dataType:"text"
+				})
+						.done(function(response){
+							//console.log(response);
+
+							//  alert(response);
+							var emp_ids = selected_values.split(";");
+							var cpt=0;
+							for (var i=0; i < emp_ids.length; i++ ) { $("#"+emp_ids[i]).remove(); cpt++}
+							$("#ok").fadeIn(2000);
+							$("#ok").html('<label class="text-success">'+cpt+' Entities Successfully deleted</label>');
+							$("#ok").fadeOut(6000);
+
+						})
+						.fail(function(){
+
+							alert('Something Went Wrog ....');
+
+						});
+			}
+		}
+	});
+
+	$(document).on('click', '#select_all_records', function() {
+		$(".ctr_recor_checkbox").prop("checked", this.checked);
+		$("#select_count").html($("input.ctr_recor_checkbox:checked").length+" Selected");
+	});
+	$(document).on('click', '.ctr_recor_checkbox', function() {
+		if ($('.ctr_recor_checkbox:checked').length == $('.ctr_recor_checkbox').length) {
+			$('#select_all_records').prop('checked', true);
+		} else {
+			$('#select_all_records').prop('checked', false);
+		}
+		$("#select_count").html($("input.ctr_recor_checkbox:checked").length+" Selected");
+	});
+
+
+	// delete selected records
+	$('#add_records').on('click', function(e) {
+		var entitie = [];
+		$(".ctr_recor_checkbox:checked").each(function() {
+			entitie.push($(this).data('emp-id'));
+		});
+		if(entitie.length <=0) { alert("Veuillez sélectionner des enregistrements."); } else { WRN_PROFILE_DELETE = "Voullez vous générer "+(entitie.length>1?"ces":"cette")+" entité(s)?";
+			var checked = confirm(WRN_PROFILE_DELETE);
+			if(checked == true) {
+				var selected_values = entitie.join(";");
+				//  alert(selected_values);
+				var sendInfo = {
+					importer: 'ajax',
+					entnames: selected_values
+				};
+				$("#ko").fadeOut(7500);
+
+				$.ajax({
+
+					type: 'POST',
+					url: varurl+'/generate_entitie/nulle',
+					data: sendInfo
+
+				})
+
+
+						.done(function(response){
+							var emp_ids = selected_values.split(";");
+
+							// alert(response);
+							for (var i=0; i < emp_ids.length; i++ ) {
+								$("#"+emp_ids[i]).remove();
+								//var nbrows = $('#dataTable tr').length;                           //append the controls in the row
+								var rowcount =$('#dataTable tr').length;
+
+								var tblRow = ' <tr id="' + jsUcfirst(emp_ids[i]) + '"><td>' +rowcount + '</td> <td><a href="#">' + jsUcfirst(emp_ids[i])  + '</a> </td> <td>src/entitie/' + jsUcfirst(emp_ids[i]) + '.class.php</td> <td><input type="checkbox" class="ctr_checkbox" data-emp-id="' + jsUcfirst(emp_ids[i]) + '"></td> <td><a href="{$url_base}SM_Admin/delete_entitie/' + jsUcfirst(emp_ids[i]) + '">Supprimer</a></td> </tr>';
+								$("#dataTable").append(tblRow);
+								$("#ko").fadeIn(2000);
+								$("#ko").html(response);
+								$("#ko").fadeOut(6000);
+							}
+
+						})
+						.fail(function(){
+
+							alert('Something Went Wrog ....');
+
+						});
+			}
+		}
+	});
+
+
+
+
+
+
+
+	$(document).ready(function(){
+		/*$('input[type="checkbox"]').click(function(){
+            if($(this).prop("checked") == true){
+                alert("Checkbox is checked.");
+            }
+            else if($(this).prop("checked") == false){
+                alert("Checkbox is unchecked.");
+            }
+        });*/
+		$("#curendatabase").change(function() {
+			if(this.checked) {
+
+				//Do stuff
+				$("#addmethode").val(0);
+				$("#selecteddb").slideUp("500");
+			}else {
+				$("#addmethode").val(1);
+
+				$("#selecteddb").slideDown("500");
+			}
+		});
+	});
+</script>
+
+</body>
+
+</html>

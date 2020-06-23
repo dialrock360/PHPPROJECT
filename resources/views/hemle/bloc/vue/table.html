@@ -1,0 +1,57 @@
+
+<div class="table-responsive">
+
+
+    {if isset($views)}
+
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            {if $views != null}
+            <thead>
+            <tr>
+                <th>Identifiant</th>
+                <th>Nom</th>
+                <th>Path</th>
+                <th>Nombre de fichiers</th>
+
+                <th> </th>
+                <th><input type="checkbox" id="select_allctr"><span class="rows_selected" id="select_count">0 Selected</span></th>
+                <th>
+
+                    <a type="button" id="delete_records" class="btn btn-danger pull-right"><i class="fa fa-trash"></i></a>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {foreach from=$views item=db}
+            <tr id="{$db['entname']}">
+                <td>{$db['id']}</td>
+                <td><a href="{$url_base}SM_Admin/edit_vue/{$db['entname']}">{$db['entname']}</a> </td>
+                <td>{$db['entpath']}</td>
+                <td>{$db['nbrfile']}</td>
+                <td>
+                    <a href="{$url_base}SM_Admin/edit_vue/{$db['entname']}" class="btn btn-outline-info pull-right"  title="editer"> <i class="fa fa-edit"></i></a>
+
+                </td>
+                <td><input type="checkbox" class="ctr_checkbox" data-emp-id="{$db['entname']}"></td>
+                <td><a href="{$url_base}SM_Admin/delete_vue/{$db['entname']}" class="btn btn-outline-danger pull-right" title="Supprimer"> <i class="fa fa-trash"></i></a></td>
+            </tr>
+
+            {/foreach}
+            {else}
+            <tr>
+                <th colspan="7">
+
+                    Liste vide
+
+                </th>
+
+            </tr>
+            {/if}
+            </tbody>
+        </table>
+
+    {else}
+    RAS
+    {/if}
+</div>

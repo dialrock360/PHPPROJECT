@@ -1,0 +1,13 @@
+
+   
+    {if isset($lostdatabases)}
+
+    {foreach from=$lostdatabases item=db}
+    <tr>
+        <td>{$db['dbid']}</td>
+        <td><a href="#">{$db['dbname']}</a> </td>
+        <td>{$db['dbdate']}</td>
+        <td><a href="{$url_base}SM_Admin/restor_database/{$db['dbref']}">Restaurer</a></td>
+    </tr>
+    {/foreach}
+    {/if}
